@@ -65,7 +65,7 @@ def upload_to_db(db_config,storage,k,rank_mat,img_paths):
         "date": dates[i],
         "camId": camIds[i],
         "lstatus": 0,
-        "lid": -1,
+        "lid": {},
         "k": k,
         "rank_list": [fdir_filenames[j] for j in rank_order if j!=i] 
         }  for i,rank_order in enumerate(rank_mat)] 
