@@ -69,7 +69,7 @@ def upload_to_db(db_config,storage,k,rank_mat,img_paths):
         "k": k,
         "rank_list": [fdir_filenames[j] for j in rank_order if j!=i] 
         }  for i,rank_order in enumerate(rank_mat)] 
-
+    # {} --> will be an empty object in MongoDB
     requests = [  UpdateOne({ "key": doc["key"]}, { "$set": doc }, upsert=True) for doc in docs ]
     try:
         collection.bulk_write(requests)
