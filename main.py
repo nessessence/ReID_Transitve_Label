@@ -60,7 +60,7 @@ def process_argsort(distance_mat,cfg):
         print("loading argsorted_distance complete")
         return argsorted_distance
     print("start calculating argsort distance")
-    argsorted_distance = np.argsort(distance_mat.cpu().numpy(),axis=1)[:,:cfg['budget']['k']+1]
+    argsorted_distance = np.argsort(distance_mat.cpu().numpy(),axis=1)
     np.save(f"{cfg['log']['log_dir']}/{cfg['log']['argsorted_distance']}",argsorted_distance )
     print(f"argsorted_distance has been saved to {cfg['log']['log_dir']}/{cfg['log']['argsorted_distance']}")
     return argsorted_distance
